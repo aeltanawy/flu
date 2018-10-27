@@ -1,0 +1,2 @@
+module FluHelper
+end
