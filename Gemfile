@@ -52,6 +52,8 @@ group :development do
   gem 'bootstrap'
   gem 'sprockets-rails', '>= 2.3.2'
   gem 'jquery-rails'
+  # Use CSV for parsing csv tables to database
+  gem 'csv'
 end
 
 group :test do
