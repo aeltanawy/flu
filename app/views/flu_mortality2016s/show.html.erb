@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>State:</strong>
+  <%= @flu_mortality2016.state.name %>
+</p>
+
+<p>
+  <strong>Deaths:</strong>
+  <%= @flu_mortality2016.deaths %>
+</p>
+
+<%= link_to 'Edit', edit_flu_mortality2016_path(@flu_mortality2016) %> |
+<%= link_to 'Back', flu_mortality2016s_path %>

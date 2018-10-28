@@ -1,0 +1,2 @@
+module FluMortality2014sHelper
+end

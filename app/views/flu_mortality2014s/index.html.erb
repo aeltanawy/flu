@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Flu Mortality 2014</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Deaths</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flu_mortality2014s.each do |flu_mortality2014| %>
+      <tr>
+        <td><%= flu_mortality2014.state.name %></td>
+        <td><%= flu_mortality2014.deaths %></td>
+        <td><%= link_to 'Show', flu_mortality2014 %></td>
+        <td><%= link_to 'Edit', edit_flu_mortality2014_path(flu_mortality2014) %></td>
+        <td><%= link_to 'Destroy', flu_mortality2014, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flu Mortality2014', new_flu_mortality2014_path %>
