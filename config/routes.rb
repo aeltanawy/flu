@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :state_populations
   resources :flu_mortality2016s
   resources :flu_mortality2015s
   resources :flu_mortality2014s

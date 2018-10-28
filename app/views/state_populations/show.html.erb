@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>State:</strong>
+  <%= @state_population.state.name %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @state_population.year %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @state_population.number %>
+</p>
+
+<%= link_to 'Edit', edit_state_population_path(@state_population) %> |
+<%= link_to 'Back', state_populations_path %>

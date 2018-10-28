@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_221419) do
+ActiveRecord::Schema.define(version: 2018_10_28_223157) do
 
   create_table "flu_mortality2014s", force: :cascade do |t|
     t.integer "state_id"
@@ -36,12 +36,20 @@ ActiveRecord::Schema.define(version: 2018_10_28_221419) do
     t.index ["state_id"], name: "index_flu_mortality2016s_on_state_id"
   end
 
+  create_table "state_populations", force: :cascade do |t|
+    t.integer "year"
+    t.integer "number"
+    t.integer "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_state_populations_on_state_id"
+  end
+
   create_table "states", force: :cascade do |t|
     t.string "state"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "population"
   end
 
 end
