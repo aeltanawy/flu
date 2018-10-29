@@ -1,6 +1,6 @@
 class FluMortality2015sController < ApplicationController
   before_action :set_flu_mortality2015, only: [:show, :edit, :update, :destroy]
-
+  #validates :state, :uniqueness => true
   # GET /flu_mortality2015s
   # GET /flu_mortality2015s.json
   def index

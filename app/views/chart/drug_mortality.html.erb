@@ -1,0 +1,35 @@
+<div id="container" style="width:100%; height:500px;">
+  <script type="text/javascript">
+    $(function () {
+      var myChart = Highcharts.chart('container', {
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: 'Drug Mortality by US state'
+        },
+        xAxis: {
+          title: {
+            text: 'US States'
+          },
+          categories: <%= raw @state_names %>
+        },
+        yAxis: {
+          title: {
+            text: 'Number of Deaths'
+          },
+        },
+        series: [{
+          name: '2016',
+          data: <%= raw @drug_2016_deaths %>
+        }, {
+          name: '2015',
+          data: <%= raw @drug_2015_deaths %>
+        }, {
+          name: '2014',
+          data: <%= raw @drug_2014_deaths %>
+        }]
+      });
+    });
+  </script>
+</div>

@@ -1,51 +1,51 @@
-state_name,deaths,per_num_pop
-Alabama,736,100000
-Alaska,122,100000
-Arizona,1274,100000
-Arkansas,392,100000
-California,4659,100000
-Colorado,869,100000
-Connecticut,800,100000
-Delaware,198,100000
-Florida,3228,100000
-Georgia,1302,100000
-Hawaii,169,100000
-Idaho,218,100000
-Illinois,1835,100000
-Indiana,1245,100000
-Iowa,309,100000
-Kansas,329,100000
-Kentucky,1273,100000
-Louisiana,861,100000
-Maine,269,100000
-Maryland,1285,100000
-Massachusetts,1724,100000
-Michigan,1980,100000
-Minnesota,581,100000
-Mississippi,351,100000
-Missouri,1066,100000
-Montana,138,100000
-Nebraska,126,100000
-Nevada,619,100000
-New Hampshire,422,100000
-New Jersey,1454,100000
-New Mexico,501,100000
-New York,2754,100000
-North Carolina,1567,100000
-North Dakota,61,100000
-Ohio,3310,100000
-Oklahoma,725,100000
-Oregon,505,100000
-Pennsylvania,3264,100000
-Rhode Island,310,100000
-South Carolina,761,100000
-South Dakota,65,100000
-Tennessee,1457,100000
-Texas,2588,100000
-Utah,646,100000
-Vermont,99,100000
-Virginia,1039,100000
-Washington,1094,100000
-West Virginia,725,100000
-Wisconsin,878,100000
-Wyoming,96,100000
+state_name,deaths
+Alabama,736
+Alaska,122
+Arizona,1274
+Arkansas,392
+California,4659
+Colorado,869
+Connecticut,800
+Delaware,198
+Florida,3228
+Georgia,1302
+Hawaii,169
+Idaho,218
+Illinois,1835
+Indiana,1245
+Iowa,309
+Kansas,329
+Kentucky,1273
+Louisiana,861
+Maine,269
+Maryland,1285
+Massachusetts,1724
+Michigan,1980
+Minnesota,581
+Mississippi,351
+Missouri,1066
+Montana,138
+Nebraska,126
+Nevada,619
+New Hampshire,422
+New Jersey,1454
+New Mexico,501
+New York,2754
+North Carolina,1567
+North Dakota,61
+Ohio,3310
+Oklahoma,725
+Oregon,505
+Pennsylvania,3264
+Rhode Island,310
+South Carolina,761
+South Dakota,65
+Tennessee,1457
+Texas,2588
+Utah,646
+Vermont,99
+Virginia,1039
+Washington,1094
+West Virginia,725
+Wisconsin,878
+Wyoming,96

@@ -1,6 +1,6 @@
 class StatePopulationsController < ApplicationController
   before_action :set_state_population, only: [:show, :edit, :update, :destroy]
-
+  #validates :state, :uniqueness => true
   # GET /state_populations
   # GET /state_populations.json
   def index
@@ -71,6 +71,6 @@ class StatePopulationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def state_population_params
-      params.require(:state_population).permit(:year, :number, :state_id)
+      params.require(:state_population).permit(:year_2016, :year_2015, :year_2014, :state_id)
     end
 end

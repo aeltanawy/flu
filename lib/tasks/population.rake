@@ -10,11 +10,12 @@ namespace :population do
 
       #get the state id of the current state from states database
       state = State.find_by_name(row['state_name'])
-      
+
       #create new model instances with each row
       StatePopulation.create!(
-        year: row['year'].to_i,
-        number: row['population'].to_i,
+        year_2016: row['year_2016'].to_i,
+        year_2015: row['year_2015'].to_i,
+        year_2014: row['year_2014'].to_i,
         state_id: state.id,
       )
 

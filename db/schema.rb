@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_232604) do
+ActiveRecord::Schema.define(version: 2018_10_29_084926) do
 
   create_table "drug_mortality2014s", force: :cascade do |t|
     t.integer "state_id"
     t.integer "deaths"
-    t.integer "per_num_pop"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_drug_mortality2014s_on_state_id"
@@ -24,7 +23,6 @@ ActiveRecord::Schema.define(version: 2018_10_28_232604) do
   create_table "drug_mortality2015s", force: :cascade do |t|
     t.integer "state_id"
     t.integer "deaths"
-    t.integer "per_num_pop"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_drug_mortality2015s_on_state_id"
@@ -33,7 +31,6 @@ ActiveRecord::Schema.define(version: 2018_10_28_232604) do
   create_table "drug_mortality2016s", force: :cascade do |t|
     t.integer "state_id"
     t.integer "deaths"
-    t.integer "per_num_pop"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_drug_mortality2016s_on_state_id"
@@ -65,10 +62,12 @@ ActiveRecord::Schema.define(version: 2018_10_28_232604) do
 
   create_table "state_populations", force: :cascade do |t|
     t.integer "year"
-    t.integer "number"
     t.integer "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "year_2016"
+    t.integer "year_2015"
+    t.integer "year_2014"
     t.index ["state_id"], name: "index_state_populations_on_state_id"
   end
 

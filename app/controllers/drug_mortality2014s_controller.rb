@@ -1,6 +1,6 @@
 class DrugMortality2014sController < ApplicationController
   before_action :set_drug_mortality2014, only: [:show, :edit, :update, :destroy]
-
+  #validates :state, :uniqueness => true
   # GET /drug_mortality2014s
   # GET /drug_mortality2014s.json
   def index
@@ -71,6 +71,6 @@ class DrugMortality2014sController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drug_mortality2014_params
-      params.require(:drug_mortality2014).permit(:state_id, :deaths, :per_num_pop)
+      params.require(:drug_mortality2014).permit(:state_id, :deaths)
     end
 end

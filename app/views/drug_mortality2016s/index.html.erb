@@ -7,7 +7,6 @@
     <tr>
       <th>State</th>
       <th>Deaths</th>
-      <th>Per population number</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= drug_mortality2016.state.name %></td>
         <td><%= drug_mortality2016.deaths %></td>
-        <td><%= drug_mortality2016.per_num_pop %></td>
         <td><%= link_to 'Show', drug_mortality2016 %></td>
         <td><%= link_to 'Edit', edit_drug_mortality2016_path(drug_mortality2016) %></td>
         <td><%= link_to 'Destroy', drug_mortality2016, method: :delete, data: { confirm: 'Are you sure?' } %></td>
