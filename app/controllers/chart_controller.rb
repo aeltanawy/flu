@@ -93,7 +93,7 @@ class ChartController < ApplicationController
 
   def calc_mortality_rate(death, pop)
     rate = (death.to_f / pop) * 100000
-    return rate
+    return rate.to_i
   end
 
 end
