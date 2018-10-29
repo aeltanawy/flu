@@ -49,7 +49,7 @@ group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   # Use Bootstrap
-  gem 'bootstrap'
+  gem 'bootstrap', '~> 4.0.0.alpha6'
   gem 'sprockets-rails', '>= 2.3.2'
   gem 'jquery-rails'
   # Use CSV for parsing csv tables to database
