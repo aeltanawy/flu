@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>State:</strong>
+  <%= @drug_mortality2015.state.name %>
+</p>
+
+<p>
+  <strong>Deaths:</strong>
+  <%= @drug_mortality2015.deaths %>
+</p>
+
+<p>
+  <strong>Per population number:</strong>
+  <%= @drug_mortality2015.per_num_pop %>
+</p>
+
+<%= link_to 'Edit', edit_drug_mortality2015_path(@drug_mortality2015) %> |
+<%= link_to 'Back', drug_mortality2015s_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Drug Mortality 2014</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Deaths</th>
+      <th>Per population number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drug_mortality2014s.each do |drug_mortality2014| %>
+      <tr>
+        <td><%= drug_mortality2014.state.name %></td>
+        <td><%= drug_mortality2014.deaths %></td>
+        <td><%= drug_mortality2014.per_num_pop %></td>
+        <td><%= link_to 'Show', drug_mortality2014 %></td>
+        <td><%= link_to 'Edit', edit_drug_mortality2014_path(drug_mortality2014) %></td>
+        <td><%= link_to 'Destroy', drug_mortality2014, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Drug Mortality2014', new_drug_mortality2014_path %>

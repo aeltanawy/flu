@@ -1,0 +1,2 @@
+module DrugMortality2015sHelper
+end

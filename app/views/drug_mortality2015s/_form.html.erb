@@ -1,0 +1,32 @@
+<%= form_with(model: drug_mortality2015, local: true) do |form| %>
+  <% if drug_mortality2015.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(drug_mortality2015.errors.count, "error") %> prohibited this drug_mortality2015 from being saved:</h2>
+
+      <ul>
+      <% drug_mortality2015.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :state_id %>
+    <%= form.collection_select(:state_id, @states, :id, :state_menu) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deaths %>
+    <%= form.number_field :deaths %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Per population number" %>
+    <%= form.number_field :per_num_pop %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
