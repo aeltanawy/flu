@@ -77,10 +77,12 @@ class ChartController < ApplicationController
     @drug_2016_db = DrugMortality2016.all
     @states = State.all
     @state_all = []
+    @state_name = []
     @flu_rate = []
     @drug_rate = []
     @states.each do |state|
       @state_all << state.state
+      @state_name << [state.state, state.name]
       pop = @population_db.find_by_state_id(state.id)
       flu = @flu_2016_db.find_by_state_id(state.id)
       drug = @drug_2016_db.find_by_state_id(state.id)
