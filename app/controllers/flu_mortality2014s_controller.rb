@@ -4,7 +4,14 @@ class FluMortality2014sController < ApplicationController
   # GET /flu_mortality2014s
   # GET /flu_mortality2014s.json
   def index
-    @flu_mortality2014s = FluMortality2014.all
+    #Verifying the filter input text
+    @filter_state = params[:filter_id]
+    if @filter_state != ""
+      @state = verify_filter(@filter_state)
+      puts @state
+    end
+
+    @flu_mortality2014s = FluMortality2014.search(@state)
   end
 
   # GET /flu_mortality2014s/1
@@ -71,6 +78,6 @@ class FluMortality2014sController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def flu_mortality2014_params
-      params.require(:flu_mortality2014).permit(:state_id, :deaths)
+      params.require(:flu_mortality2014).permit(:state_id, :deaths, :filter_id)
     end
 end

@@ -4,7 +4,14 @@ class DrugMortality2016sController < ApplicationController
   # GET /drug_mortality2016s
   # GET /drug_mortality2016s.json
   def index
-    @drug_mortality2016s = DrugMortality2016.all
+    #Verifying the filter input text
+    @filter_state = params[:filter_id]
+    if @filter_state != ""
+      @state = verify_filter(@filter_state)
+      puts @state
+    end
+
+    @drug_mortality2016s = DrugMortality2016.search(@state)
   end
 
   # GET /drug_mortality2016s/1
@@ -71,6 +78,6 @@ class DrugMortality2016sController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drug_mortality2016_params
-      params.require(:drug_mortality2016).permit(:state_id, :deaths)
+      params.require(:drug_mortality2016).permit(:state_id, :deaths, :filter_id)
     end
 end
