@@ -1,3 +1,70 @@
-<div id="container" style="width:100%; height:400px;">
-  <p>Flu Mortality by US state</p>
+<!--
+********************************************************************************
+*   The following template is adapted from Google Charts
+*   Availability:
+		https://developers.google.com/chart/interactive/docs/gallery/geochart
+********************************************************************************
+-->
+<h3 style="text-align:center;">Flu mortality in the US by state</h3><br><br>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+
+  google.charts.load('current', {
+    'packages':['geochart'],
+    'mapsApiKey': 'AIzaSyCudvtnxZuJP8tkU97bwjS2beEzaDllNmE'
+  });
+  google.charts.setOnLoadCallback(drawRegionsMap);
+
+  function drawRegionsMap() {
+    var data_1 = google.visualization.arrayToDataTable(<%= raw @flu_2016 %>);
+
+    var data_2 = google.visualization.arrayToDataTable(<%= raw @flu_2015 %>);
+
+    var data_3 = google.visualization.arrayToDataTable(<%= raw @flu_2014 %>);
+
+    var options = {
+      region: 'US', // US
+      datalessRegionColor: '#f5f5f5',
+      defaultColor: '#f5f5f5',
+      displayMode: 'regions',
+      resolution: 'provinces',
+      
+    };
+    var chart_1 = new google.visualization.GeoChart(document.getElementById('regions_div_1'));
+    chart_1.draw(data_1, options);
+
+    var chart_2 = new google.visualization.GeoChart(document.getElementById('regions_div_2'));
+    chart_2.draw(data_2, options);
+
+    var chart_3 = new google.visualization.GeoChart(document.getElementById('regions_div_3'));
+    chart_3.draw(data_3, options);
+
+    function resize() {
+      var chart_1 = new google.visualization.GeoChart(document.getElementById('regions_div_1'));
+      chart_1.draw(data_1, options);
+      var chart_2 = new google.visualization.GeoChart(document.getElementById('regions_div_2'));
+      chart_2.draw(data_2, options);
+
+      var chart_3 = new google.visualization.GeoChart(document.getElementById('regions_div_3'));
+      chart_3.draw(data_3, options);
+    }
+    window.onresize = resize;
+  }
+</script>
+
+<div id='container'>
+  <h5>2016</h5>
+  <div id="regions_div_1" style="width: 100%; height: 600px;"></div>
+</div>
+<hr>
+<div id='container'>
+  <h5>2015</h5>
+  <div id="regions_div_2" style="width: 100%; height: 600px;"></div>
+</div>
+<hr>
+<div id='container'>
+  <h5>2014</h5>
+  <div id="regions_div_3" style="width: 100%; height: 600px;"></div>
 </div>

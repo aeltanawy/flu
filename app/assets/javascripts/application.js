@@ -13,7 +13,6 @@
 //= require highcharts
 //= require highmaps
 //= require highstock
-//= require gmaps/google
 //= require rails-ujs
 //= require activestorage
 //=require jquery
