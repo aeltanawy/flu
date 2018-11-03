@@ -4,6 +4,12 @@ class StatePopulationsController < ApplicationController
   # GET /state_populations
   # GET /state_populations.json
   def index
+    #Verifying the filter input text
+    @filter_state = params[:filter_id]
+    if @filter_state != ""
+      @state = verify_filter(@filter_state)
+    end
+
     @state_populations = StatePopulation.all
   end
 
@@ -71,6 +77,6 @@ class StatePopulationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def state_population_params
-      params.require(:state_population).permit(:year_2016, :year_2015, :year_2014, :state_id)
+      params.require(:state_population).permit(:year_2016, :year_2015, :year_2014, :state_id, :filter_id)
     end
 end
