@@ -14,6 +14,7 @@
 
  body {
    margin-left: 20px;
+   margin-right: 20px;
    margin-top: 60px;
  }
 
@@ -27,3 +28,24 @@
      margin-right: auto;
      width: 550px;
    }
+
+   .posts {
+     color:rgb(88, 150, 252);
+   }
+
+   .right-container {
+     float: right;
+     width: 50%;
+   }
+
+   .left-container {
+     float: left;
+     width: 50%;
+   }
+ /*button
+   .search_btn {
+     color: green;
+   }
+   .search_btn:hover {
+     color: white !important;
+   }*/
