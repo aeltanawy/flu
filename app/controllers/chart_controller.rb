@@ -5,9 +5,11 @@ class ChartController < ApplicationController
     @map_2016 = []
     # to get all state names into an array
     @states = State.all
+    @state_all = []
     @state_names = []
     @states.each do |state|
       @state_names << state.state
+      @state_all << [state.state, state.name]
     end
 
     # to get 2016 Flu mortality into an array
@@ -44,9 +46,11 @@ class ChartController < ApplicationController
   def drug_mortality
     # to get all state names into an array
     @states = State.all
+    @state_all = []
     @state_names = []
     @states.each do |state|
       @state_names << state.state
+      @state_all << [state.state, state.name]
     end
 
     # to get 2016 Flu mortality into an array
@@ -91,11 +95,6 @@ class ChartController < ApplicationController
       drug_rate = calc_mortality_rate(drug.deaths, pop.year_2016)
       @drug_rate << drug_rate
     end
-  end
-
-  def calc_mortality_rate(death, pop)
-    rate = (death.to_f / pop) * 100000
-    return rate.to_i
   end
 
 end

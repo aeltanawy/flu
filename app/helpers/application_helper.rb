@@ -30,6 +30,11 @@ module ApplicationHelper
     end
   end
 
+  # calculate the Crude Mortality Rate
+  def calc_mortality_rate(death, pop)
+    rate = (death.to_f / pop) * 100000
+    return rate.to_i
+  end
 #  def show_error(input_text)
 #    redirect_to flu_mortality2016_path
 #  end

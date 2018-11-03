@@ -8,7 +8,6 @@ class FluMortality2015sController < ApplicationController
     @filter_state = params[:filter_id]
     if @filter_state != ""
       @state = verify_filter(@filter_state)
-      puts @state
     end
 
     @flu_mortality2015s = FluMortality2015.search(@state)

@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get '/chart/drug_mortality', to: 'chart#drug_mortality', as: "drug_mortality_chart"
   get '/chart/flu_vs_drug', to: 'chart#flu_vs_drug', as: "flu_vs_drug_chart"
 
+  # Route for the Search by state
+  #get "/search", to: "search#index"
+  get '/search/:id', to: 'search#show_state' #, as: 'show_state'
+
   # Home page route
   root 'flu#index'
 end
