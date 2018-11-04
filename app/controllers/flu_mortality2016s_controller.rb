@@ -32,6 +32,8 @@ class FluMortality2016sController < ApplicationController
   # POST /flu_mortality2016s
   # POST /flu_mortality2016s.json
   def create
+    @states = State.all
+    
     @flu_mortality2016 = FluMortality2016.new(flu_mortality2016_params)
 
     respond_to do |format|

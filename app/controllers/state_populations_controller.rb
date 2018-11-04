@@ -32,6 +32,8 @@ class StatePopulationsController < ApplicationController
   # POST /state_populations
   # POST /state_populations.json
   def create
+    @states = State.all
+    
     @state_population = StatePopulation.new(state_population_params)
 
     respond_to do |format|
