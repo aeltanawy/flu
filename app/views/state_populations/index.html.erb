@@ -5,7 +5,7 @@
 </div>
 
 <div class="right-container">
-  <%= form_tag(flu_mortality2016s_path, method: :get) do %>
+  <%= form_tag(state_populations_path, method: :get) do %>
     <%= label_tag(:filter_id, "Enter a state:") %>
     <%= text_field_tag(:filter_id, params[:filter_id]) %>
     <%= submit_tag("Filter") %>
@@ -31,8 +31,8 @@
         <td><%= state_population.year_2015 %></td>
         <td><%= state_population.year_2014 %></td>
         <td><%= link_to 'Show', state_population %></td>
-        <td><%= link_to 'Edit', edit_state_population_path(state_population) %></td>
-        <td><%= link_to 'Destroy', state_population, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_state_population_path(state_population), data: { confirm: 'Are you sure you want to edit State population for this record?' } %></td>
+        <td><%= link_to 'Destroy', state_population, method: :delete, data: { confirm: 'Are you sure you want to delete State population for this record?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,118 +1,117 @@
-<% if @state_id == ""%>
+<% if (@state_id == "") or (@rec_found == false) %>
   <h5><br><br><%=@message%></h5>
 <% else %>
   <h1><%= @state_state %>, <%= @state_name %></h1>
-<% end %>
-
-<!--Charts for Flu & Drug Mortalities in 2016, 2015, 2014 years-->
-<div id = "container" style="width:50%; height:500px; float:left">
-  <script type="text/javascript">
-    $(function () {
-      Highcharts.chart('container', {
-        chart: {
-          type: 'column'
-        },
-        title: {
-          text: 'Flu & Drug Mortality'
-        },
-        xAxis: {
-          categories: ['2016', '2015', '2014']
-        },
-        yAxis: {
+  <!--Charts for Flu & Drug Mortalities in 2016, 2015, 2014 years-->
+  <div id = "container" style="width:50%; height:500px; float:left">
+    <script type="text/javascript">
+      $(function () {
+        Highcharts.chart('container', {
+          chart: {
+            type: 'column'
+          },
           title: {
-            text: 'Number of Deaths'
+            text: 'Flu & Drug Mortality'
           },
-        },
-        tooltip: {
-          formatter: function () {
-            var data = '<b>' + this.x + '</b><br>';
-            $.each(this.points, function (i, point) {
-              data += '<span style="color:' + point.color + '; font-weight:bold">● ' +  point.series.name + ' CMR: </span>' + point.y + '<br>';
-            });
-            return data;
+          xAxis: {
+            categories: ['2016', '2015', '2014']
           },
-          shared: true,
-        },
-        series: [{
-          name: 'Flu',
-          data: <%= raw @flu_deaths %>
-        }, {
-          name: 'Drug',
-          data: <%= raw @drug_deaths %>
-        }]
+          yAxis: {
+            title: {
+              text: 'Number of Deaths'
+            },
+          },
+          tooltip: {
+            formatter: function () {
+              var data = '<b>' + this.x + '</b><br>';
+              $.each(this.points, function (i, point) {
+                data += '<span style="color:' + point.color + '; font-weight:bold">● ' +  point.series.name + ' CMR: </span>' + point.y + '<br>';
+              });
+              return data;
+            },
+            shared: true,
+          },
+          series: [{
+            name: 'Flu',
+            data: <%= raw @flu_deaths %>
+          }, {
+            name: 'Drug',
+            data: <%= raw @drug_deaths %>
+          }]
+        });
       });
-    });
-  </script>
-</div>
+    </script>
+  </div>
 
-<!--Charts for Flu & Drug CMR in 2016, 2015, 2014 years-->
-<div id = "container2" style="width:50%; height:500px; float:left">
-  <script type="text/javascript">
-    $(function () {
-      Highcharts.chart('container2', {
-        chart: {
-          type: 'column'
-        },
-        title: {
-          text: 'Flu & Drug Crude Mortality Rate (CMR)'
-        },
-        xAxis: {
-          categories: ['2016', '2015', '2014']
-        },
-        yAxis: {
+  <!--Charts for Flu & Drug CMR in 2016, 2015, 2014 years-->
+  <div id = "container2" style="width:50%; height:500px; float:left">
+    <script type="text/javascript">
+      $(function () {
+        Highcharts.chart('container2', {
+          chart: {
+            type: 'column'
+          },
           title: {
-            text: 'CMR'
+            text: 'Flu & Drug Crude Mortality Rate (CMR)'
           },
-        },
-        tooltip: {
-          formatter: function () {
-            var data = '<b>' + this.x + '</b><br>';
-            $.each(this.points, function (i, point) {
-              data += '<span style="color:' + point.color + '; font-weight:bold">● ' +  point.series.name + ' CMR: </span>' + point.y + '<br>';
-            });
-            return data;
+          xAxis: {
+            categories: ['2016', '2015', '2014']
           },
-          shared: true,
-        },
-        series: [{
-          name: 'Flu',
-          data: <%= raw @flu_cmr %>
-        }, {
-          name: 'Drug',
-          data: <%= raw @drug_cmr %>
-        }]
+          yAxis: {
+            title: {
+              text: 'CMR'
+            },
+          },
+          tooltip: {
+            formatter: function () {
+              var data = '<b>' + this.x + '</b><br>';
+              $.each(this.points, function (i, point) {
+                data += '<span style="color:' + point.color + '; font-weight:bold">● ' +  point.series.name + ' CMR: </span>' + point.y + '<br>';
+              });
+              return data;
+            },
+            shared: true,
+          },
+          series: [{
+            name: 'Flu',
+            data: <%= raw @flu_cmr %>
+          }, {
+            name: 'Drug',
+            data: <%= raw @drug_cmr %>
+          }]
+        });
       });
-    });
-  </script>
-</div>
+    </script>
+  </div>
 
-<h3>Data</h3>
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th width="30%">Year</th>
-      <th width="10%">Flu Mortality</th>
-      <th width="30%">Drug Mortality</th>
-      <th width="10%">Flu CMR</th>
-      <th width="30%">Drug CMR</th>
-      <th>Population</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% n = 0 %>
-    <% for i in 6.downto(4) do %>
-      <% year = '201' + i.to_s %>
-      <% year_col = 'year_' + year %>
+  <h3>Data</h3>
+  <table class="table table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= year %></td>
-        <td><%= @flu_deaths[n] %></td>
-        <td><%= @drug_deaths[n] %></td>
-        <td><%= @flu_cmr[n] %></td>
-        <td><%= @drug_cmr[n] %></td>
-        <td><%= @pop_rec[year_col.to_sym] %></td>
+        <th width="30%">Year</th>
+        <th width="10%">Flu Mortality</th>
+        <th width="30%">Drug Mortality</th>
+        <th width="10%">Flu CMR</th>
+        <th width="30%">Drug CMR</th>
+        <th>Population</th>
       </tr>
-      <% n += 1 %>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% n = 0 %>
+      <% for i in 6.downto(4) do %>
+        <% year = '201' + i.to_s %>
+        <% year_col = 'year_' + year %>
+        <tr>
+          <td><%= year %></td>
+          <td><%= @flu_deaths[n] %></td>
+          <td><%= @drug_deaths[n] %></td>
+          <td><%= @flu_cmr[n] %></td>
+          <td><%= @drug_cmr[n] %></td>
+          <td><%= @pop_rec[year_col.to_sym] %></td>
+        </tr>
+        <% n += 1 %>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

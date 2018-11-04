@@ -1,6 +1,7 @@
 class DrugMortality2014sController < ApplicationController
   before_action :set_drug_mortality2014, only: [:show, :edit, :update, :destroy]
-  #validates :state, :uniqueness => true
+  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
+  
   # GET /drug_mortality2014s
   # GET /drug_mortality2014s.json
   def index
@@ -33,7 +34,7 @@ class DrugMortality2014sController < ApplicationController
   # POST /drug_mortality2014s.json
   def create
     @states = State.all
-    
+
     @drug_mortality2014 = DrugMortality2014.new(drug_mortality2014_params)
 
     respond_to do |format|

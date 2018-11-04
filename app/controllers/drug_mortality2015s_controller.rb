@@ -1,6 +1,6 @@
 class DrugMortality2015sController < ApplicationController
   before_action :set_drug_mortality2015, only: [:show, :edit, :update, :destroy]
-  #validates :state, :uniqueness => true
+
   # GET /drug_mortality2015s
   # GET /drug_mortality2015s.json
   def index
@@ -33,7 +33,7 @@ class DrugMortality2015sController < ApplicationController
   # POST /drug_mortality2015s.json
   def create
     @states = State.all
-    
+
     @drug_mortality2015 = DrugMortality2015.new(drug_mortality2015_params)
 
     respond_to do |format|

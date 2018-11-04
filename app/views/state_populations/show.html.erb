@@ -20,5 +20,5 @@
   <%= @state_population.year_2014 %>
 </p>
 
-<%= link_to 'Edit', edit_state_population_path(@state_population) %> |
+<%= link_to 'Edit', edit_state_population_path(@state_population), data: { confirm: 'Are you sure you want to edit State population for this record?' } %> |
 <%= link_to 'Back', state_populations_path %>

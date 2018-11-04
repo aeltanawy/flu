@@ -27,8 +27,8 @@
         <td><%= flu_mortality2016.state.name %></td>
         <td><%= flu_mortality2016.deaths %></td>
         <td><%= link_to 'Show', flu_mortality2016 %></td>
-        <td><%= link_to 'Edit', edit_flu_mortality2016_path(flu_mortality2016) %></td>
-        <td><%= link_to 'Destroy', flu_mortality2016, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_flu_mortality2016_path(flu_mortality2016), data: { confirm: 'Are you sure you want to edit Flu Mortality for this record?' } %></td>
+        <td><%= link_to 'Destroy', flu_mortality2016, method: :delete, data: { confirm: 'Are you sure you want to delete Flu Mortality for this record?' } %></td>
       </tr>
     <% end %>
   </tbody>

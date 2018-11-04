@@ -10,7 +10,7 @@ class StatePopulationsController < ApplicationController
       @state = verify_filter(@filter_state)
     end
 
-    @state_populations = StatePopulation.all
+    @state_populations = StatePopulation.search(@state)
   end
 
   # GET /state_populations/1
@@ -33,7 +33,7 @@ class StatePopulationsController < ApplicationController
   # POST /state_populations.json
   def create
     @states = State.all
-    
+
     @state_population = StatePopulation.new(state_population_params)
 
     respond_to do |format|
