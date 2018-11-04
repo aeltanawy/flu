@@ -1,6 +1,13 @@
 class StatePopulationsController < ApplicationController
   before_action :set_state_population, only: [:show, :edit, :update, :destroy]
-  #validates :state, :uniqueness => true
+  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
+
+  # In case RecordNotFound
+  def redirect_if_not_found
+    logger.error "Attempt to access non-existent #{request.controller_class} '#{params[:id]}'."
+    flash[:notice] = "Sorry, but #{request.controller_class} '#{params[:id]}' doesn't exist. Use the filter instead. Use the filter instead."
+    redirect_to(state_populations_path)
+  end
   # GET /state_populations
   # GET /state_populations.json
   def index

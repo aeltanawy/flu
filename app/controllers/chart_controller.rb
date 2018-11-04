@@ -1,4 +1,6 @@
 class ChartController < ApplicationController
+  #rescue_from ActionController::RoutingError, with: :route_not_found
+
   def flu_mortality
     @map_2014 = []
     @map_2015 = []

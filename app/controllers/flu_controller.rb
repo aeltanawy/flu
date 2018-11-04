@@ -1,4 +1,12 @@
 class FluController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
+
+  # In case RecordNotFound
+  def redirect_if_not_found
+    logger.error "Attempt to access non-existent #{request.controller_class} '#{params[:id]}'."
+    flash[:notice] = "Sorry, but #{request.controller_class} '#{params[:id]}' doesn't exist."
+    redirect_to(root_path)
+  end
   def index
     @flu_2016 = [['State', 'Flu Mortality']]
     @flu_2015 = [['State', 'Flu Mortality']]

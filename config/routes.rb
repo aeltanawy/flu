@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # Route for the Search by state
   #get "/search", to: "search#index"
-  get '/search/:id', to: 'search#show_state' #, as: 'show_state'
+  get '/search/:id', to: 'search#show_state' , as: 'show_state'
 
   # Home page route
   root 'flu#index'

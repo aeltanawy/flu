@@ -1,6 +1,14 @@
 class FluMortality2014sController < ApplicationController
   before_action :set_flu_mortality2014, only: [:show, :edit, :update, :destroy]
-  #validates :state, :uniqueness => true
+  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
+
+  # In case RecordNotFound
+  def redirect_if_not_found
+    logger.error "Attempt to access non-existent #{request.controller_class} '#{params[:id]}'."
+    flash[:notice] = "Sorry, but #{request.controller_class} '#{params[:id]}' doesn't exist. Use the filter instead."
+    redirect_to(flu_mortality2014s_path)
+  end
+
   # GET /flu_mortality2014s
   # GET /flu_mortality2014s.json
   def index
@@ -33,7 +41,7 @@ class FluMortality2014sController < ApplicationController
   # POST /flu_mortality2014s.json
   def create
     @states = State.all
-    
+
     @flu_mortality2014 = FluMortality2014.new(flu_mortality2014_params)
 
     respond_to do |format|

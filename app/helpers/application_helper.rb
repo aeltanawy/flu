@@ -13,8 +13,6 @@ module ApplicationHelper
       cont = true
       @col_name = 'name'
       filter = filter.capitalize
-    #else
-      #show_error('state')
     end
     if cont
       state_id = get_state(@col_name, filter)
@@ -35,7 +33,4 @@ module ApplicationHelper
     rate = (death.to_f / pop) * 100000
     return rate.to_i
   end
-#  def show_error(input_text)
-#    redirect_to flu_mortality2016_path
-#  end
 end

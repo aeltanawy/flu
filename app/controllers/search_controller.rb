@@ -2,8 +2,8 @@ class SearchController < ApplicationController
 
   def show_state
     state = params[:state_id]
-
-    if state != ""
+    @rec_found = State.where(id: state).nil?
+    if state != "" and @rec_found
       # Getting the state record from State database
       @state_id = verify_filter(state)
       @state_rec = State.find_by_id(@state_id)
@@ -47,7 +47,7 @@ class SearchController < ApplicationController
       end
     end
 
-    @message = "Enter a valid US state in search to view the full information."
+    @message = "State '#{state}' doesn't exist.\nEnter a valid US state in search to view the full information."
 
   end
 
