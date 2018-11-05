@@ -1,7 +1,7 @@
 class StatesController < ApplicationController
   before_action :set_state, only: [:show, :edit, :update, :destroy]
-  validates :state, :uniqueness => true
-  
+  #validates :state, :uniqueness => true
+
   # GET /states
   # GET /states.json
   def index
