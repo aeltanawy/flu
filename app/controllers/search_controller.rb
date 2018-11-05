@@ -21,6 +21,8 @@ class SearchController < ApplicationController
           item = db.split('M')[0]
           db = db.constantize
           state_rec = db.find_by_state_id(@state_id)
+          puts 'hi'
+          puts state_rec
           if item == 'Flu'
             @flu_deaths << state_rec.deaths
           elsif item == 'Drug'
