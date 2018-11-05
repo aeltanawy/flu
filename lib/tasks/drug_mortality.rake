@@ -25,7 +25,6 @@ namespace :drug_mortality do
         db.create!(
           state_id: state.id,
           deaths: row['deaths'].to_i,
-          per_num_pop: row['per_num_pop'].to_i
         )
 
         #confirm successfull completion of the task
