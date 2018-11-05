@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap'
 gem 'sprockets-rails', '>= 2.3.2'
 gem 'jquery-rails'
 # Use CSV for parsing csv tables to database
