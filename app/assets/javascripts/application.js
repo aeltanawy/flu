@@ -14,7 +14,7 @@
 //= require highmaps
 //= require highstock
 //= require activestorage
-//= require jquery3
+//= require jquery
 //= require jquery_ujs
 //= require jquery-ui
 //= require popper
