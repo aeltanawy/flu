@@ -61,13 +61,12 @@ ActiveRecord::Schema.define(version: 2018_11_05_035248) do
   end
 
   create_table "state_populations", force: :cascade do |t|
-    t.integer "year"
+    t.integer "year_2014"
+    t.integer "year_2015"
+    t.integer "year_2016"
     t.integer "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "year_2016"
-    t.integer "year_2015"
-    t.integer "year_2014"
     t.index ["state_id"], name: "index_state_populations_on_state_id"
   end
 
