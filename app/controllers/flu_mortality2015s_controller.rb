@@ -5,7 +5,7 @@ class FluMortality2015sController < ApplicationController
   # In case RecordNotFound
   def redirect_if_not_found
     logger.error "Attempt to access non-existent #{request.controller_class} '#{params[:id]}'."
-    flash[:notice] = "Sorry, but #{request.controller_class} '#{params[:id]}' doesn't exist.Use the filter instead."
+    flash[:notice] = "Please use the filter instead."
     redirect_to(flu_mortality2015s_path)
   end
 
@@ -14,7 +14,7 @@ class FluMortality2015sController < ApplicationController
   def index
     #Verifying the filter input text
     @filter_state = params[:filter_id]
-    if @filter_state != ""
+    unless @filter_state.nil? || @filter_state.empty? || @filter_state.blank?
       @state = verify_filter(@filter_state)
     end
 

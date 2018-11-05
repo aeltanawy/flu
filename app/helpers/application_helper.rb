@@ -3,7 +3,6 @@ module ApplicationHelper
     #Verifying the filter input text
     filter = filter_id.to_s
     filter = filter.rstrip
-    puts filter
     cont = false
     if filter.length == 2
       cont = true
@@ -25,6 +24,8 @@ module ApplicationHelper
     if State.exists?(rec)
       state = State.all.where(rec)
       return state.ids
+    else
+      flash.now[:notice] = "Sorry, but '#{val}' doesn't exist. Enter a valid US state."
     end
   end
 
